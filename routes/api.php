@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 Route::middleware(['apikey'])->group(function(){
     Route::post('/register',[AuthController::class,'register']);
     Route::post('send-otp',[AuthController::class,'sendOtp']);
+    Route::post('verify-otp',[AuthController::class,'verifyOtp']);
     Route::post('/login',[AuthController::class,'login']);
 
     Route::middleware(['auth:sanctum'])->group(function(){
