@@ -20,8 +20,10 @@ return new class extends Migration
             $table->string('password')->nullable(); // nullable for OTP/Google login
             $table->unsignedBigInteger('role_id')->nullable();
             $table->boolean('email_verified')->default(false);
-            $table->boolean('mobile_verified')->default(false);
             $table->boolean('is_active')->default(true);
+            $table->boolean('basic_details')->default(false);
+            $table->boolean('role_verification')->default(false);
+            $table->boolean('profile_details')->default(false);
             $table->softDeletes();
             $table->timestamps();
 

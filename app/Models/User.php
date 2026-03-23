@@ -19,15 +19,18 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-   protected $fillable = [
+    protected $fillable = [
         'email',
         'mobile',
         'username',
         'password',
         'role_id',
         'email_verified',
-        'mobile_verified',
-        'is_active'
+        'is_active',
+        'basic_details',
+        'role_verification',
+        'profile_details',
+
     ];
 
     /**
@@ -44,8 +47,20 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-      public function role()
+    public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    // Recruiter relation
+    public function recruiter()
+    {
+        return $this->hasOne(Recruiter::class);
+    }
+
+    // Job Seeker relation
+    public function jobSeeker()
+    {
+        return $this->hasOne(JobSeeker::class);
     }
 }
